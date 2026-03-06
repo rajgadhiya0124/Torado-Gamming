@@ -11,6 +11,9 @@ import blogCommentRoutes from "./router/blog.comment.router.js"
 import faqRoutes from "./router/faq.router.js"
 import partnerRoutes from "./router/partner.router.js"
 import galleryRoutes from "./router/gallery.router.js"
+import coreTeamRoutes from "./router/core_team.router.js"
+import gamingTeamRoutes from "./router/gaming.team.router.js"
+import playerRoutes from "./router/player.router.js"
 
 const app = express();
 
@@ -35,6 +38,11 @@ app.use("/api/blog/category",blogCatRoutes);
 app.use("/api/blog/tag",blogTagRoutes);
 app.use("/api/blog",blogRoutes);
 app.use("/api/blog/comment",blogCommentRoutes);
+
+app.use("/api/coreteam",coreTeamRoutes);
+
+app.use("/api/gamingTeam", gamingTeamRoutes);
+app.use("/api/player", playerRoutes);
 
 app.use("/api/user",userRoutes);
 

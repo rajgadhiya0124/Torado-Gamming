@@ -1,8 +1,32 @@
 import React from 'react'
 import { MdKeyboardArrowRight } from 'react-icons/md'
-import { Link } from 'react-router-dom'
+import { Link ,useNavigate} from 'react-router-dom'
+import axios from 'axios'
+import { useState } from 'react'
+import { useEffect } from 'react'
 
 const HomeTeam = () => {
+
+    const navigate = useNavigate();
+    const [teamMember, setTeamMember] = useState([]);
+
+    const fetchTeamMember = async()=>{
+        try {
+            const res = await axios.get("http://localhost:8000/api/coreteam/getall");
+
+            const ActiveTeam = res.data.data.filter(
+                (items)=> items.status === 1
+            )
+            setTeamMember(ActiveTeam);
+        } catch (error) {
+            console.error("error while fetch team members",error)
+        }
+    }
+
+    useEffect(()=>{
+        fetchTeamMember();
+    },[]);
+
   return (
     // home team section
     <section className='relative py-25 bg-center bg-no-repeat bg-cover bg-fixed text-white'
@@ -20,28 +44,38 @@ const HomeTeam = () => {
                 <div className="h-[1.5px] w-full bg-[#198754]"></div>
 
                 <div className='w-full flex justify-end'>
-                    <Link className='flex items-center text-emerald-400 text-[18px] font-[700]'>ALL TEAM MEMBERS <MdKeyboardArrowRight /></Link>
+                    <Link to={'/team'} className='flex items-center text-emerald-400 text-[18px] font-[700]'>
+                        ALL TEAM MEMBERS <MdKeyboardArrowRight />
+                    </Link>
                 </div>
             </div>
 
             <div className='grid grid-cols-3 gap-5 mt-[50px]'>
                 {/* team card */}
-                <div className='home-team-card relative group cursor-pointer'>
-                    <img src="/images/home/team/team-1.jpg" style={{width:"100%"}} alt="" />
+                {teamMember.slice(0,3).map((item)=>(
+                <div className='home-team-card relative group cursor-pointer' 
+                    onClick={()=>navigate(`/teamdetails/${item.id}`)}
+                    key={item.id}
+                >
+
+                    <img src={`http://localhost:8000/uploads/team/${item.member_image}`} 
+                        style={{width:"100%"}} alt="" />
                     
-                    <div className='absolute bottom-0 left-0 w-full text-center py-5 bg-black/50 
+                    <div className='absolute bottom-0 left-0 w-full text-center py-5 bg-gradient-to-t from-black/90 to-transparent
                         translate-y-0 opacity-0
                         group-hover:translate-y-0 group-hover:opacity-100
                         transition-all duration-500 ease-in-out
                         '
                         >
                        
-                        <h4 className='font-[600] text-[20px]'>STOMEN DEW</h4>
-                        <span className='text-emerald-400'>Manager</span>
+                        <h4 className='font-[600] text-[20px]'>{item.member_name}</h4>
+                        <span className='text-emerald-400'>{item.member_role}</span>
                         
                     </div>
                 </div>
-
+                ))}
+                
+{/* 
                  <div className='home-team-card relative group cursor-pointer'>
                     <img src="/images/home/team/team-2.jpg" style={{width:"100%"}} alt="" />
                     
@@ -70,9 +104,7 @@ const HomeTeam = () => {
                         <span className='text-emerald-400'>Marketer</span>
                         
                     </div>
-                </div>
-
-
+                </div> */}
 
             </div>
         </section>

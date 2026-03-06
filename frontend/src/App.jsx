@@ -14,11 +14,15 @@ import BlogTag from './pages/BlogTag'
 import FaqPage from './pages/FaqPage'
 import PartnerPage from './pages/PartnerPage'
 import GalleryPage from './pages/GalleryPage'
+import TeamPage from './pages/TeamPage'
+import TeamDetails from './pages/TeamDetails'
+import ScrolltoTop from './components/ScrolltoTop'
 
 function App() {
 
   return (
     <>
+      <ScrolltoTop />
       <ToastContainer 
         position='top-right' autoClose={3000} hideProgressBar={false}
         closeOnClick
@@ -41,6 +45,9 @@ function App() {
         <Route path='/blog/details/:id' element={<BlogDetailsPage />} />
         <Route path='/blog/category/:id' element={<BlogCategory />} />
         <Route path='/blog/tag/:id' element={<BlogTag />} />
+
+        <Route path='/team' element={<TeamPage />} />
+        <Route path='/teamdetails/:id' element={<TeamDetails />} />
       </Routes>
 
       <Footer />

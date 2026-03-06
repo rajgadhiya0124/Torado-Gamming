@@ -58,7 +58,7 @@ const Navbar = () => {
                                 ABOUT US
                             </li>
                             <li className="px-4 py-2 font-[600] hover:text-emerald-400 bg-[#17181b] order-dotted border-b-1 cursor-pointer">
-                                TEAM
+                                <Link to={'/team'}>TEAM</Link>
                             </li>
                             <li className="px-4 py-2 font-[600] hover:text-emerald-400 bg-[#17181b] order-dotted border-b-1 cursor-pointer">
                                 MATCH
