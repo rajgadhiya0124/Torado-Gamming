@@ -60,8 +60,17 @@ const Navbar = () => {
                             <li className="px-4 py-2 font-[600] hover:text-emerald-400 bg-[#17181b] order-dotted border-b-1 cursor-pointer">
                                 <Link to={'/team'}>TEAM</Link>
                             </li>
-                            <li className="px-4 py-2 font-[600] hover:text-emerald-400 bg-[#17181b] order-dotted border-b-1 cursor-pointer">
+                            <li className="relative group/match px-4 py-2 font-[600] hover:text-emerald-400 bg-[#17181b] border-dotted border-b-1 cursor-pointer">
                                 MATCH
+
+                                <ul className='absolute left-[200px] top-0 w-[200px] opacity-0 invisible  group-hover/match:opacity-100 group-hover/match:visible z-100'>
+                                    <li className="px-4 py-2 text-white hover:text-emerald-400 bg-[#17181b] border-b cursor-pointer">
+                                        <Link to="/match">MATCHES</Link>
+                                    </li>
+                                    <li className="px-4 py-2 text-white hover:text-emerald-400 bg-[#17181b] border-b cursor-pointer">
+                                        <Link to="/matches">ALL MATCHES</Link>
+                                    </li>
+                                </ul>
                             </li>
                             <li className="px-4 py-2 font-[600] hover:text-emerald-400 bg-[#17181b] order-dotted border-b-1 cursor-pointer">
                                 USER

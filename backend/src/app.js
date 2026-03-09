@@ -14,6 +14,7 @@ import galleryRoutes from "./router/gallery.router.js"
 import coreTeamRoutes from "./router/core_team.router.js"
 import gamingTeamRoutes from "./router/gaming.team.router.js"
 import playerRoutes from "./router/player.router.js"
+import matchRoutes from "./router/match.router.js"
 
 const app = express();
 
@@ -43,6 +44,7 @@ app.use("/api/coreteam",coreTeamRoutes);
 
 app.use("/api/gamingTeam", gamingTeamRoutes);
 app.use("/api/player", playerRoutes);
+app.use("/api/match", matchRoutes);
 
 app.use("/api/user",userRoutes);
 

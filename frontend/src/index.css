@@ -88,3 +88,35 @@ body {
     padding: 10px 15px;
   }
 }
+
+/*match info page*/
+.match-info p{
+    font-size: 18px;
+    color: #abb2bf;
+    font-weight: 500;
+    margin: 10px 0px;
+}
+.matchinfo-img{
+  width: 100%;
+}
+.match-info .game-article{
+  border-left: 2px solid #0be9c2;
+  background-color: #18191d;
+  padding:  15px 35px;
+}
+
+
+@media(max-width: 1024px){
+    .match-info p{
+      font-size: 16px;
+      color: #abb2bf;
+      font-weight: 500;
+  }
+}
+@media(max-width:576px){
+  .match-info .game-article{
+  border-left: 2px solid #0be9c2;
+  background-color: #18191d;
+  padding:  5px 15px;
+}
+}

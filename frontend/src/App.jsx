@@ -17,6 +17,8 @@ import GalleryPage from './pages/GalleryPage'
 import TeamPage from './pages/TeamPage'
 import TeamDetails from './pages/TeamDetails'
 import ScrolltoTop from './components/ScrolltoTop'
+import MatchPage from './pages/MatchPage'
+import MatchDetails from './pages/MatchDetails'
 
 function App() {
 
@@ -29,7 +31,7 @@ function App() {
         pauseOnHover
       />
     
-      <Navbar />
+      {/* <Navbar /> */}
 
       <Routes >
         <Route path='/' element={<HomePage />}/>
@@ -46,11 +48,14 @@ function App() {
         <Route path='/blog/category/:id' element={<BlogCategory />} />
         <Route path='/blog/tag/:id' element={<BlogTag />} />
 
+        <Route path='/match' element={<MatchPage />} />
+        <Route path='/matchdetails' element={<MatchDetails />} />
+
         <Route path='/team' element={<TeamPage />} />
         <Route path='/teamdetails/:id' element={<TeamDetails />} />
       </Routes>
 
-      <Footer />
+      {/* <Footer /> */}
     </>
   )
 }
